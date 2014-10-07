@@ -6,9 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VariableViewController">
             <connections>
-                <outlet property="formulaWebView" destination="Jf4-JM-Q7h" id="nEA-4s-PTx"/>
                 <outlet property="maxValueButton" destination="zpA-tK-p7j" id="8yL-lH-kHM"/>
                 <outlet property="minValueButton" destination="J8A-OH-da0" id="Ezj-6o-EO8"/>
+                <outlet property="nameField" destination="8J6-W9-rGl" id="YWd-aS-5LP"/>
                 <outlet property="slider" destination="8X6-c8-Red" id="fYR-Y4-AA7"/>
                 <outlet property="valueLabel" destination="zAF-qF-fYY" id="scS-Um-cTz"/>
                 <outlet property="view" destination="iN0-l3-epB" id="hD4-Ka-OjJ"/>
@@ -16,17 +16,17 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="266" height="130"/>
+            <rect key="frame" x="0.0" y="0.0" width="314" height="116"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="8X6-c8-Red">
-                    <rect key="frame" x="34" y="97" width="198" height="31"/>
+                    <rect key="frame" x="34" y="83" width="246" height="31"/>
                     <connections>
                         <action selector="sliderMoved:" destination="-1" eventType="valueChanged" id="fXF-aq-hCi"/>
                     </connections>
                 </slider>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8A-OH-da0">
-                    <rect key="frame" x="3" y="97" width="30" height="30"/>
+                    <rect key="frame" x="3" y="83" width="30" height="30"/>
                     <state key="normal" title="-1">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -35,7 +35,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpA-tK-p7j">
-                    <rect key="frame" x="233" y="97" width="30" height="30"/>
+                    <rect key="frame" x="281" y="83" width="30" height="30"/>
                     <state key="normal" title="1">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -43,36 +43,40 @@
                         <action selector="openNumberpad:" destination="-1" eventType="touchUpInside" id="z8a-pw-zJb"/>
                     </connections>
                 </button>
-                <webView userInteractionEnabled="NO" contentMode="scaleToFill" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" mediaPlaybackAllowsAirPlay="NO" keyboardDisplayRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jf4-JM-Q7h">
-                    <rect key="frame" x="8" y="8" width="112" height="72"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <dataDetectorType key="dataDetectorTypes"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="gmU-u5-Ck1"/>
-                    </connections>
-                </webView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRd-eD-DZ7">
-                    <rect key="frame" x="128" y="54" width="11" height="21"/>
+                    <rect key="frame" x="152" y="47" width="11" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAF-qF-fYY">
-                    <rect key="frame" x="147" y="54" width="111" height="21"/>
+                    <rect key="frame" x="171" y="47" width="135" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8J6-W9-rGl">
+                    <rect key="frame" x="114" y="43" width="30" height="30"/>
+                    <color key="backgroundColor" red="0.83153723438037797" green="0.92018091931874524" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="ApW-em-X8F"/>
+                        <constraint firstAttribute="height" constant="30" id="UDV-TW-umt"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="italicSystem" pointSize="18"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="-1" eventType="editingChanged" id="MYD-QP-p6x"/>
+                        <action selector="variableNameFieldTouched:" destination="-1" eventType="editingDidBegin" id="pRB-AM-cWQ"/>
+                    </connections>
+                </textField>
             </subviews>
             <color key="backgroundColor" red="0.6705882353" green="0.85321624090000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="NRd-eD-DZ7" firstAttribute="leading" secondItem="Jf4-JM-Q7h" secondAttribute="trailing" constant="8" id="3Uh-9n-yHa"/>
-                <constraint firstItem="J8A-OH-da0" firstAttribute="top" secondItem="Jf4-JM-Q7h" secondAttribute="bottom" constant="17" id="AkD-nR-K3B"/>
                 <constraint firstAttribute="centerY" secondItem="zAF-qF-fYY" secondAttribute="centerY" id="GGt-2T-3GO"/>
-                <constraint firstItem="Jf4-JM-Q7h" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="HAO-d4-UTX"/>
                 <constraint firstAttribute="bottom" secondItem="J8A-OH-da0" secondAttribute="bottom" constant="3" id="JgV-jx-k1i"/>
                 <constraint firstItem="8X6-c8-Red" firstAttribute="leading" secondItem="J8A-OH-da0" secondAttribute="trailing" constant="3" id="JwN-We-Jww"/>
+                <constraint firstAttribute="centerY" secondItem="8J6-W9-rGl" secondAttribute="centerY" id="MAA-Uf-kzj"/>
                 <constraint firstItem="J8A-OH-da0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="3" id="MSM-Ga-S0L"/>
                 <constraint firstAttribute="bottom" secondItem="zpA-tK-p7j" secondAttribute="bottom" constant="3" id="NyH-D5-1N8"/>
                 <constraint firstAttribute="centerX" secondItem="NRd-eD-DZ7" secondAttribute="centerX" id="SYW-Lc-n8x"/>
@@ -82,7 +86,7 @@
                 <constraint firstAttribute="bottom" secondItem="8X6-c8-Red" secondAttribute="bottom" constant="3" id="cH9-40-8xU"/>
                 <constraint firstAttribute="trailing" secondItem="zAF-qF-fYY" secondAttribute="trailing" constant="8" id="emd-BW-Sc6"/>
                 <constraint firstAttribute="trailing" secondItem="zpA-tK-p7j" secondAttribute="trailing" constant="3" id="ftw-zL-bmy"/>
-                <constraint firstItem="Jf4-JM-Q7h" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="vxg-Cg-7tQ"/>
+                <constraint firstItem="NRd-eD-DZ7" firstAttribute="leading" secondItem="8J6-W9-rGl" secondAttribute="trailing" constant="8" id="q0N-YM-5fV"/>
                 <constraint firstItem="zAF-qF-fYY" firstAttribute="leading" secondItem="NRd-eD-DZ7" secondAttribute="trailing" constant="8" id="yL3-Yw-OOE"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -91,7 +95,7 @@
                 <outletCollection property="gestureRecognizers" destination="zFE-VZ-JEQ" appends="YES" id="ELl-W0-wA0"/>
                 <outletCollection property="gestureRecognizers" destination="e5U-pe-gGy" appends="YES" id="5wj-av-YfP"/>
             </connections>
-            <point key="canvasLocation" x="141" y="145"/>
+            <point key="canvasLocation" x="165" y="138"/>
         </view>
         <panGestureRecognizer minimumNumberOfTouches="1" id="zFE-VZ-JEQ">
             <connections>

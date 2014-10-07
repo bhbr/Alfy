@@ -21,6 +21,7 @@
 @property (nonatomic) UIButton *editedBoundButton;
 @property (nonatomic) BOOL isPanning;
 
+@property (nonatomic) IBOutlet UITextField *nameField;
 
 @end
 
@@ -41,6 +42,7 @@
 @synthesize updaterDelegate;
 @synthesize isPanning;
 
+@synthesize nameField;
 
 
 
@@ -69,8 +71,10 @@
     self.unhighlightColor = [UIColor colorWithRed:171./255. green:218./255. blue:1 alpha:1];
     self.highlightColor = [UIColor colorWithRed:120./255 green:195./255 blue:1 alpha:1];
     
-    [self unhighlight];
+    self.nameField.text = self.variable.name;
     
+    [self unhighlight];
+
     return self;
 }
 
@@ -96,7 +100,11 @@
 }
 
 
-
+- (void)promptForVariableName {
+    if ([self.nameField.text isEqualToString:@""]) {
+        [self.nameField becomeFirstResponder];
+    }
+}
 
 - (IBAction)sliderMoved:(UISlider *)sender {
 
@@ -140,6 +148,29 @@
     [self.updaterDelegate updatePlotsDependentOn:self.variable];
     
 }
+
+
+
+- (IBAction)variableNameFieldTouched:(UITextField *)sender {
+    sender.text = @"";
+}
+
+- (IBAction)dismissKeyboard:(UITextField *)sender {
+    
+    if ([sender.text length] == 1) {
+        [sender resignFirstResponder];
+        self.variable.name = [sender.text mutableCopy];
+    }
+    
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+
+
 
 
 // this method prevents touches on the slider from triggering dragging

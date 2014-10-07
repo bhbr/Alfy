@@ -123,13 +123,15 @@
     [self.variables addObject:variableVC.variable];
     [self.terms addObject:variableVC.variable];
     
-    variableVC.view.center = self.view.center;
+    variableVC.view.center = CGPointMake(self.view.center.x, 150);
+    variableVC.variable.frame = variableVC.view.frame;
     [self.view addSubview:variableVC.view];
     
     [self addChildViewController:variableVC];
     [self.variableVCs addObject:variableVC];
     [self.termVCs addObject:variableVC];
     
+    [variableVC promptForVariableName];
     
 }
 
@@ -144,8 +146,10 @@
     [self.constants addObject:constantVC.constant];
     [self.terms addObject:constantVC.constant];
     
-    constantVC.view.center = self.view.center;
+    constantVC.view.center = CGPointMake(self.view.center.x, 150);
+    constantVC.constant.frame = constantVC.view.frame;
     [self.view addSubview:constantVC.view];
+    
     [self addChildViewController:constantVC];
     [self.constantVCs addObject:constantVC];
     [self.termVCs addObject:constantVC];
@@ -289,20 +293,19 @@
 
 - (IBAction)loadState {
     
+    [self clearState];
+    
     // load variables
-    
-    [self.variables removeAllObjects];
-    
-    for (VariableViewController *variableVC in self.variableVCs) {
-        [variableVC.view removeFromSuperview];
-        [variableVC removeFromParentViewController];
-    }
-    [self.variableVCs removeAllObjects];
     
     self.variables = [NSKeyedUnarchiver unarchiveObjectWithFile:[self.dataDirectory stringByAppendingString:@"variables.plist"]];
     
     for (Variable *variable in self.variables) {
         VariableViewController *variableVC = [[VariableViewController alloc] initWithVariable:variable];
+        variableVC.delegate = self;
+        variableVC.updaterDelegate = self;
+        variableVC.selectionHandlerDelegate = self;
+        variableVC.arrowDrawer = self;
+        
         [self.view addSubview:variableVC.view];
         [self addChildViewController:variableVC];
         [self.variableVCs addObject:variableVC];
@@ -311,18 +314,15 @@
     
     // load constants
     
-    [self.constants removeAllObjects];
-    
-    for (ConstantViewController *constantVC in self.constantVCs) {
-        [constantVC.view removeFromSuperview];
-        [constantVC removeFromParentViewController];
-    }
-    [self.constantVCs removeAllObjects];
-    
     self.constants = [NSKeyedUnarchiver unarchiveObjectWithFile:[self.dataDirectory stringByAppendingString:@"constants.plist"]];
     
     for (Constant *constant in self.constants) {
         ConstantViewController *constantVC = [[ConstantViewController alloc] initWithConstant:constant];
+        constantVC.delegate = self;
+        constantVC.updaterDelegate = self;
+        constantVC.selectionHandlerDelegate = self;
+        constantVC.arrowDrawer = self;
+
         [self.view addSubview:constantVC.view];
         [self addChildViewController:constantVC];
         [self.constantVCs addObject:constantVC];
@@ -332,18 +332,14 @@
     
     // load composed terms
     
-    [self.composedTerms removeAllObjects];
-    
-    for (ComposedTermViewController *composedTermVC in self.composedTermVCs) {
-        [composedTermVC.view removeFromSuperview];
-        [composedTermVC removeFromParentViewController];
-    }
-    [self.composedTermVCs removeAllObjects];
-    
     self.composedTerms = [NSKeyedUnarchiver unarchiveObjectWithFile:[self.dataDirectory stringByAppendingString:@"composedTerms.plist"]];
     
     for (ComposedTerm *composedTerm in self.composedTerms) {
         ComposedTermViewController *composedTermVC = [[ComposedTermViewController alloc] initWithComposedTerm:composedTerm];
+        composedTermVC.delegate = self;
+        composedTermVC.arrowDrawer = self;
+        composedTermVC.selectionHandlerDelegate = self;
+
         [self.view addSubview:composedTermVC.view];
         [self addChildViewController:composedTermVC];
         [self.composedTermVCs addObject:composedTermVC];
@@ -355,28 +351,57 @@
     
     // load plots
     
-    [self.plots removeAllObjects];
-    
-    for (PlotViewController *plotVC in self.plotVCs) {
-        [plotVC.view removeFromSuperview];
-        [plotVC removeFromParentViewController];
-    }
-    [self.plotVCs removeAllObjects];
-    
-    self.plots = [NSKeyedUnarchiver unarchiveObjectWithFile:[self.dataDirectory stringByAppendingString:@"plots.plist"]];
-    
-    for (Plot *plot in self.plots) {
-        PlotViewController *plotVC = [[PlotViewController alloc] initWithPlot:plot];
-        [self.view addSubview:plotVC.view];
-        [self addChildViewController:plotVC];
-        [self.plotVCs addObject:plotVC];
-    }
+//    [self.plots removeAllObjects];
+//    
+//    for (PlotViewController *plotVC in self.plotVCs) {
+//        [plotVC.view removeFromSuperview];
+//        [plotVC removeFromParentViewController];
+//    }
+//    [self.plotVCs removeAllObjects];
+//    
+//    self.plots = [NSKeyedUnarchiver unarchiveObjectWithFile:[self.dataDirectory stringByAppendingString:@"plots.plist"]];
+//    
+//    for (Plot *plot in self.plots) {
+//        PlotViewController *plotVC = [[PlotViewController alloc] initWithPlot:plot];
+//        [self.view addSubview:plotVC.view];
+//        [self addChildViewController:plotVC];
+//        [self.plotVCs addObject:plotVC];
+//    }
     
 }
 
  
-//}
+- (IBAction)clearState {
+   
+    [self.variables removeAllObjects];
+    
+    for (VariableViewController *variableVC in self.variableVCs) {
+        [variableVC.view removeFromSuperview];
+        [variableVC removeFromParentViewController];
+    }
+    [self.variableVCs removeAllObjects];
+    
+    
+    [self.constants removeAllObjects];
+    
+    for (ConstantViewController *constantVC in self.constantVCs) {
+        [constantVC.view removeFromSuperview];
+        [constantVC removeFromParentViewController];
+    }
+    [self.constantVCs removeAllObjects];
 
+    
+    [self.composedTerms removeAllObjects];
+    
+    for (ComposedTermViewController *composedTermVC in self.composedTermVCs) {
+        [composedTermVC.view removeFromSuperview];
+        [composedTermVC removeFromParentViewController];
+    }
+    [self.composedTermVCs removeAllObjects];
+
+    [self updateArrows];
+    
+}
 
 
 - (id <Term>)termForView:(UIView *)touchedView {
@@ -454,12 +479,13 @@
     newComposedTermVC.arrowDrawer = self;
     newComposedTermVC.selectionHandlerDelegate = self;
     
-    
     [self.composedTerms addObject:newComposedTermVC.composedTerm];
     [self.terms addObject:newComposedTermVC.composedTerm];
     
     newComposedTermVC.view.center = [self centerFromParents:newComposedTerm.parents];
+    newComposedTerm.frame = newComposedTermVC.view.frame;
     [self.view addSubview:newComposedTermVC.view];
+    
     [self addChildViewController:newComposedTermVC];
     [self.composedTermVCs addObject:newComposedTermVC];
     [self.termVCs addObject:newComposedTermVC];

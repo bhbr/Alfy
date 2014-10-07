@@ -24,7 +24,7 @@
     self.maxValue = 1;
     self.value = 0;
     self.frame = CGRectZero;
-    self.name = [@"x" mutableCopy];
+    self.name = [@"" mutableCopy];
     return self;
 }
 

@@ -14,7 +14,6 @@
 
 
 @interface TermViewController : UIViewController <UIPopoverControllerDelegate,
-                                                  //OperatorMenuVCDelegate,
                                                   UIWebViewDelegate>
 
 @property (nonatomic) IBOutlet UILabel *valueLabel;
@@ -27,13 +26,11 @@
 @property (nonatomic) id <TermSelectionHandler> selectionHandlerDelegate;
 
 - (IBAction)dragView:(UIPanGestureRecognizer *)sender;
-//- (void)openOperatorMenu;
 - (void)highlight;
 - (void)unhighlight;
 - (NSString *)formulaAsHTML;
 - (void)prepareFormulaWebView;
 
-//- (CGPoint)menuCenter;
 
 
 @end

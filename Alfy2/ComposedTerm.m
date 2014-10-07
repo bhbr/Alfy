@@ -119,6 +119,7 @@
     
     
     if ([self.parents count] == 1) {
+        
         if ([self.operatorString isEqualToString:@"x²"]) {
             if ([parent1 isAVariable] || [parent1 isAConstant]) {
                 [returnString appendString:@"<msup>"];
@@ -130,15 +131,9 @@
                 [returnString appendString:@"<mo>)</mo></mrow><mn>2</mn></msup>"];
             }
         } else if ([self.operatorString isEqualToString:@"√x"]) {
-            if ([parent1 isAVariable] || [parent1 isAConstant]) {
-                [returnString appendString:@"<mroot>"];
-                [returnString appendString:[parent1 formula]];
-                [returnString appendString:@"</mroot>"];
-            } else {
-                [returnString appendString:@"<mroot><mo>(</mo>"];
-                [returnString appendString:[parent1 formula]];
-                [returnString appendString:@"<mo>)</mo></mroot>"];
-            }
+            [returnString appendString:@"<msqrt>"];
+            [returnString appendString:[parent1 formula]];
+            [returnString appendString:@"</msqrt>"];
         } else if ([self.operatorString isEqualToString:@"1/x"]) {
             if ([parent1 isAVariable] || [parent1 isAConstant]) {
                 [returnString appendString:@"<mfrac><mn>1</mn>"];
@@ -161,19 +156,17 @@
                 [returnString appendString:[parent1 formula]];
             }
         }
+        
     } else if ([self.parents count] == 2) {
         
         if ([self.operatorString isEqualToString:@"+"]) {
             
-            //[returnString appendString:@"<mrow><mn></mn>"];
             [returnString appendString:[parent1 formula]];
             [returnString appendString:@"<mo>+</mo>"];
             [returnString appendString:[parent2 formula]];
-            //[returnString appendString:@"<mn></mn></mrow>"];
             
         } else if ([self.operatorString isEqualToString:@"–"]) {
             
-            //[returnString appendString:@"<mrow><mn></mn>"];
             [returnString appendString:[parent1 formula]];
             [returnString appendString:@"<mo>-</mo>"];
             if ([[parent2 outermostOperator] isEqualToString:@"+"] || [[parent2 outermostOperator] isEqualToString:@"–"]) {
@@ -183,11 +176,9 @@
             } else {
                 [returnString appendString:[parent2 formula]];
             }
-            //[returnString appendString:@"<mn></mn></mrow>"];
-
+            
         } else if ([self.operatorString isEqualToString:@"·"]) {
             
-            //[returnString appendString:@"<mrow><mn></mn>"];
             if ([[parent1 outermostOperator] isEqualToString:@"+"] || [[parent1 outermostOperator] isEqualToString:@"–"]) {
                 [returnString appendString:@"<mrow><mo>(</mo>"];
                 [returnString appendString:[parent1 formula]];
@@ -205,7 +196,6 @@
             } else {
                 [returnString appendString:[parent2 formula]];
             }
-            //[returnString appendString:@"<mn></mn></mrow>"];
             
         } else if ([self.operatorString isEqualToString:@"/"]) {
             

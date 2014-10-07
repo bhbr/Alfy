@@ -20,5 +20,6 @@
 
 - (instancetype)init;
 - (instancetype)initWithVariable:(Variable *)initialVariable;
+- (void)promptForVariableName;
 
 @end
