@@ -7,6 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BB1C819194256E10082EFBB /* ArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB1C818194256E10082EFBB /* ArrowView.m */; };
+		B51DFFBA19389D3A00A7FCB0 /* TickLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = B51DFFB819389D3A00A7FCB0 /* TickLabel.xib */; };
+		B51DFFBC1938A18F00A7FCB0 /* resizeButton.tif in Resources */ = {isa = PBXBuildFile; fileRef = B51DFFBB1938A18F00A7FCB0 /* resizeButton.tif */; };
+		B51DFFBE1938A1EA00A7FCB0 /* PlotView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B51DFFBD1938A1EA00A7FCB0 /* PlotView.xib */; };
+		B566B03B192B8DDA000E7D4E /* TermViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B566B03A192B8DDA000E7D4E /* TermViewController.m */; };
+		B566B03E192B8EB0000E7D4E /* VariableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B566B03D192B8EB0000E7D4E /* VariableViewController.m */; };
+		B566B040192B8F70000E7D4E /* VariableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B566B03F192B8F70000E7D4E /* VariableView.xib */; };
+		B566B046192B9ED6000E7D4E /* NumberpadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B566B044192B9ED6000E7D4E /* NumberpadViewController.m */; };
+		B566B047192B9ED6000E7D4E /* Numberpad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B566B045192B9ED6000E7D4E /* Numberpad.xib */; };
+		B566B04A192BD91D000E7D4E /* Variable.m in Sources */ = {isa = PBXBuildFile; fileRef = B566B049192BD91D000E7D4E /* Variable.m */; };
+		B5B0D6031930DD6300CFE080 /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B0D6011930DD6300CFE080 /* Constant.m */; };
+		B5B0D6071930DDD600CFE080 /* ConstantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B0D6061930DDD600CFE080 /* ConstantViewController.m */; };
+		B5B0D609193142D200CFE080 /* ConstantView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5B0D608193142D200CFE080 /* ConstantView.xib */; };
+		B5B0D610193201EF00CFE080 /* ComposedTerm.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B0D60F193201EF00CFE080 /* ComposedTerm.m */; };
+		B5B0D614193202EB00CFE080 /* ComposedTermViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B0D612193202EB00CFE080 /* ComposedTermViewController.m */; };
+		B5B0D615193202EB00CFE080 /* ComposedTermView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5B0D613193202EB00CFE080 /* ComposedTermView.xib */; };
+		B5B0D61A19351EBE00CFE080 /* OperatorMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5B0D61719351EBE00CFE080 /* OperatorMenuView.xib */; };
+		B5B0D61F1935D2DA00CFE080 /* OperatorMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B0D61E1935D2DA00CFE080 /* OperatorMenuViewController.m */; };
+		B5B0D62119362C3700CFE080 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B0D62019362C3700CFE080 /* QuartzCore.framework */; };
+		B5D0C0A719E2923100D01B0C /* SingleOperandMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5D0C0A619E2923100D01B0C /* SingleOperandMenu.xib */; };
+		B5D0C0AA19E2950300D01B0C /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D0C0A919E2950300D01B0C /* MenuViewController.m */; };
+		B5D0C0AC19E34E5600D01B0C /* TwoOperandMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5D0C0AB19E34E5600D01B0C /* TwoOperandMenu.xib */; };
+		B5D0C0AE19E34FCF00D01B0C /* MultiOperandMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5D0C0AD19E34FCF00D01B0C /* MultiOperandMenu.xib */; };
+		B5E2A4441938D8E100294210 /* PlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5E2A4411938D8E100294210 /* PlotView.m */; };
+		B5E2A4451938D8E100294210 /* Plot.m in Sources */ = {isa = PBXBuildFile; fileRef = B5E2A4431938D8E100294210 /* Plot.m */; };
 		B5FDE462192B4E3200C69253 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5FDE461192B4E3200C69253 /* Foundation.framework */; };
 		B5FDE464192B4E3200C69253 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5FDE463192B4E3200C69253 /* CoreGraphics.framework */; };
 		B5FDE466192B4E3200C69253 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5FDE465192B4E3200C69253 /* UIKit.framework */; };
@@ -21,6 +46,7 @@
 		B5FDE483192B4E3200C69253 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5FDE465192B4E3200C69253 /* UIKit.framework */; };
 		B5FDE48B192B4E3200C69253 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5FDE489192B4E3200C69253 /* InfoPlist.strings */; };
 		B5FDE48D192B4E3200C69253 /* Alfy2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FDE48C192B4E3200C69253 /* Alfy2Tests.m */; };
+		B5FF8EF6193A135300E47FFA /* PlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FF8EF5193A135300E47FFA /* PlotViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +60,45 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3BB1C817194256E10082EFBB /* ArrowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrowView.h; sourceTree = "<group>"; };
+		3BB1C818194256E10082EFBB /* ArrowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrowView.m; sourceTree = "<group>"; };
+		B51DFFB819389D3A00A7FCB0 /* TickLabel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TickLabel.xib; sourceTree = "<group>"; };
+		B51DFFBB1938A18F00A7FCB0 /* resizeButton.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = resizeButton.tif; sourceTree = "<group>"; };
+		B51DFFBD1938A1EA00A7FCB0 /* PlotView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlotView.xib; sourceTree = "<group>"; };
+		B566B039192B8DDA000E7D4E /* TermViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermViewController.h; sourceTree = "<group>"; };
+		B566B03A192B8DDA000E7D4E /* TermViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermViewController.m; sourceTree = "<group>"; };
+		B566B03C192B8EB0000E7D4E /* VariableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariableViewController.h; sourceTree = "<group>"; };
+		B566B03D192B8EB0000E7D4E /* VariableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariableViewController.m; sourceTree = "<group>"; };
+		B566B03F192B8F70000E7D4E /* VariableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VariableView.xib; sourceTree = "<group>"; };
+		B566B043192B9ED6000E7D4E /* NumberpadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NumberpadViewController.h; path = ../NumberpadViewController.h; sourceTree = "<group>"; };
+		B566B044192B9ED6000E7D4E /* NumberpadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NumberpadViewController.m; path = ../NumberpadViewController.m; sourceTree = "<group>"; };
+		B566B045192B9ED6000E7D4E /* Numberpad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Numberpad.xib; path = ../Numberpad.xib; sourceTree = "<group>"; };
+		B566B048192BD91D000E7D4E /* Variable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Variable.h; sourceTree = "<group>"; };
+		B566B049192BD91D000E7D4E /* Variable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Variable.m; sourceTree = "<group>"; };
+		B5B0D6001930DD6300CFE080 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		B5B0D6011930DD6300CFE080 /* Constant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constant.m; sourceTree = "<group>"; };
+		B5B0D6051930DDD600CFE080 /* ConstantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantViewController.h; sourceTree = "<group>"; };
+		B5B0D6061930DDD600CFE080 /* ConstantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstantViewController.m; sourceTree = "<group>"; };
+		B5B0D608193142D200CFE080 /* ConstantView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ConstantView.xib; path = ../ConstantView.xib; sourceTree = "<group>"; };
+		B5B0D60A1931FD4900CFE080 /* Term.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Term.h; sourceTree = "<group>"; };
+		B5B0D60E193201EF00CFE080 /* ComposedTerm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposedTerm.h; sourceTree = "<group>"; };
+		B5B0D60F193201EF00CFE080 /* ComposedTerm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposedTerm.m; sourceTree = "<group>"; };
+		B5B0D611193202EB00CFE080 /* ComposedTermViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposedTermViewController.h; sourceTree = "<group>"; };
+		B5B0D612193202EB00CFE080 /* ComposedTermViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposedTermViewController.m; sourceTree = "<group>"; };
+		B5B0D613193202EB00CFE080 /* ComposedTermView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposedTermView.xib; sourceTree = "<group>"; };
+		B5B0D61719351EBE00CFE080 /* OperatorMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OperatorMenuView.xib; sourceTree = "<group>"; };
+		B5B0D61D1935D2DA00CFE080 /* OperatorMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperatorMenuViewController.h; sourceTree = "<group>"; };
+		B5B0D61E1935D2DA00CFE080 /* OperatorMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OperatorMenuViewController.m; sourceTree = "<group>"; };
+		B5B0D62019362C3700CFE080 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B5D0C0A619E2923100D01B0C /* SingleOperandMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleOperandMenu.xib; sourceTree = "<group>"; };
+		B5D0C0A819E2950200D01B0C /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		B5D0C0A919E2950300D01B0C /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		B5D0C0AB19E34E5600D01B0C /* TwoOperandMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoOperandMenu.xib; sourceTree = "<group>"; };
+		B5D0C0AD19E34FCF00D01B0C /* MultiOperandMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultiOperandMenu.xib; sourceTree = "<group>"; };
+		B5E2A4401938D8E100294210 /* PlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotView.h; sourceTree = "<group>"; };
+		B5E2A4411938D8E100294210 /* PlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotView.m; sourceTree = "<group>"; };
+		B5E2A4421938D8E100294210 /* Plot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plot.h; sourceTree = "<group>"; };
+		B5E2A4431938D8E100294210 /* Plot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plot.m; sourceTree = "<group>"; };
 		B5FDE45E192B4E3200C69253 /* Alfy2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alfy2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5FDE461192B4E3200C69253 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B5FDE463192B4E3200C69253 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,6 +118,8 @@
 		B5FDE488192B4E3200C69253 /* Alfy2Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Alfy2Tests-Info.plist"; sourceTree = "<group>"; };
 		B5FDE48A192B4E3200C69253 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B5FDE48C192B4E3200C69253 /* Alfy2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Alfy2Tests.m; sourceTree = "<group>"; };
+		B5FF8EF4193A135300E47FFA /* PlotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotViewController.h; sourceTree = "<group>"; };
+		B5FF8EF5193A135300E47FFA /* PlotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5B0D62119362C3700CFE080 /* QuartzCore.framework in Frameworks */,
 				B5FDE464192B4E3200C69253 /* CoreGraphics.framework in Frameworks */,
 				B5FDE466192B4E3200C69253 /* UIKit.framework in Frameworks */,
 				B5FDE462192B4E3200C69253 /* Foundation.framework in Frameworks */,
@@ -79,6 +147,78 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B51DFFB619389D0A00A7FCB0 /* Plot */ = {
+			isa = PBXGroup;
+			children = (
+				B5E2A4421938D8E100294210 /* Plot.h */,
+				B5E2A4431938D8E100294210 /* Plot.m */,
+				B5FF8EF4193A135300E47FFA /* PlotViewController.h */,
+				B5FF8EF5193A135300E47FFA /* PlotViewController.m */,
+				B5E2A4401938D8E100294210 /* PlotView.h */,
+				B5E2A4411938D8E100294210 /* PlotView.m */,
+				B51DFFBD1938A1EA00A7FCB0 /* PlotView.xib */,
+				B51DFFB819389D3A00A7FCB0 /* TickLabel.xib */,
+			);
+			name = Plot;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		B5B0D60B193201A500CFE080 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				B5B0D6001930DD6300CFE080 /* Constant.h */,
+				B5B0D6011930DD6300CFE080 /* Constant.m */,
+				B5B0D6051930DDD600CFE080 /* ConstantViewController.h */,
+				B5B0D6061930DDD600CFE080 /* ConstantViewController.m */,
+				B5B0D608193142D200CFE080 /* ConstantView.xib */,
+			);
+			name = Constant;
+			sourceTree = "<group>";
+		};
+		B5B0D60C193201B100CFE080 /* Variable */ = {
+			isa = PBXGroup;
+			children = (
+				B566B048192BD91D000E7D4E /* Variable.h */,
+				B566B049192BD91D000E7D4E /* Variable.m */,
+				B566B03C192B8EB0000E7D4E /* VariableViewController.h */,
+				B566B03D192B8EB0000E7D4E /* VariableViewController.m */,
+				B566B03F192B8F70000E7D4E /* VariableView.xib */,
+			);
+			name = Variable;
+			sourceTree = "<group>";
+		};
+		B5B0D60D193201BB00CFE080 /* Numberpad */ = {
+			isa = PBXGroup;
+			children = (
+				B566B043192B9ED6000E7D4E /* NumberpadViewController.h */,
+				B566B044192B9ED6000E7D4E /* NumberpadViewController.m */,
+				B566B045192B9ED6000E7D4E /* Numberpad.xib */,
+			);
+			name = Numberpad;
+			sourceTree = "<group>";
+		};
+		B5B0D6161932049800CFE080 /* ComposedTerm */ = {
+			isa = PBXGroup;
+			children = (
+				B5B0D60E193201EF00CFE080 /* ComposedTerm.h */,
+				B5B0D60F193201EF00CFE080 /* ComposedTerm.m */,
+				B5B0D611193202EB00CFE080 /* ComposedTermViewController.h */,
+				B5B0D612193202EB00CFE080 /* ComposedTermViewController.m */,
+				B5B0D613193202EB00CFE080 /* ComposedTermView.xib */,
+			);
+			name = ComposedTerm;
+			sourceTree = "<group>";
+		};
+		B5B0D61C19351ED000CFE080 /* Operator Menu */ = {
+			isa = PBXGroup;
+			children = (
+				B5B0D61D1935D2DA00CFE080 /* OperatorMenuViewController.h */,
+				B5B0D61E1935D2DA00CFE080 /* OperatorMenuViewController.m */,
+				B5B0D61719351EBE00CFE080 /* OperatorMenuView.xib */,
+			);
+			name = "Operator Menu";
+			sourceTree = "<group>";
+		};
 		B5FDE455192B4E3100C69253 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +241,7 @@
 		B5FDE460192B4E3200C69253 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B5B0D62019362C3700CFE080 /* QuartzCore.framework */,
 				B5FDE461192B4E3200C69253 /* Foundation.framework */,
 				B5FDE463192B4E3200C69253 /* CoreGraphics.framework */,
 				B5FDE465192B4E3200C69253 /* UIKit.framework */,
@@ -112,11 +253,25 @@
 		B5FDE467192B4E3200C69253 /* Alfy2 */ = {
 			isa = PBXGroup;
 			children = (
-				B5FDE470192B4E3200C69253 /* AlfyAppDelegate.h */,
-				B5FDE471192B4E3200C69253 /* AlfyAppDelegate.m */,
+				B5B0D60D193201BB00CFE080 /* Numberpad */,
+				B5B0D61C19351ED000CFE080 /* Operator Menu */,
 				B5FDE473192B4E3200C69253 /* Main.storyboard */,
 				B5FDE476192B4E3200C69253 /* AlfyViewController.h */,
 				B5FDE477192B4E3200C69253 /* AlfyViewController.m */,
+				B5D0C0A619E2923100D01B0C /* SingleOperandMenu.xib */,
+				B5D0C0AB19E34E5600D01B0C /* TwoOperandMenu.xib */,
+				B5D0C0AD19E34FCF00D01B0C /* MultiOperandMenu.xib */,
+				B5D0C0A819E2950200D01B0C /* MenuViewController.h */,
+				B5D0C0A919E2950300D01B0C /* MenuViewController.m */,
+				B566B039192B8DDA000E7D4E /* TermViewController.h */,
+				B566B03A192B8DDA000E7D4E /* TermViewController.m */,
+				B5B0D60A1931FD4900CFE080 /* Term.h */,
+				3BB1C817194256E10082EFBB /* ArrowView.h */,
+				3BB1C818194256E10082EFBB /* ArrowView.m */,
+				B51DFFB619389D0A00A7FCB0 /* Plot */,
+				B5B0D60C193201B100CFE080 /* Variable */,
+				B5B0D60B193201A500CFE080 /* Constant */,
+				B5B0D6161932049800CFE080 /* ComposedTerm */,
 				B5FDE479192B4E3200C69253 /* Images.xcassets */,
 				B5FDE468192B4E3200C69253 /* Supporting Files */,
 			);
@@ -126,6 +281,9 @@
 		B5FDE468192B4E3200C69253 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B51DFFBB1938A18F00A7FCB0 /* resizeButton.tif */,
+				B5FDE470192B4E3200C69253 /* AlfyAppDelegate.h */,
+				B5FDE471192B4E3200C69253 /* AlfyAppDelegate.m */,
 				B5FDE469192B4E3200C69253 /* Alfy2-Info.plist */,
 				B5FDE46A192B4E3200C69253 /* InfoPlist.strings */,
 				B5FDE46D192B4E3200C69253 /* main.m */,
@@ -200,6 +358,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Ben Hambrecht";
 				TargetAttributes = {
+					B5FDE45D192B4E3100C69253 = {
+						DevelopmentTeam = 8T6F76KZ56;
+					};
 					B5FDE47E192B4E3200C69253 = {
 						TestTargetID = B5FDE45D192B4E3100C69253;
 					};
@@ -229,9 +390,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5B0D609193142D200CFE080 /* ConstantView.xib in Resources */,
+				B5D0C0AC19E34E5600D01B0C /* TwoOperandMenu.xib in Resources */,
+				B5D0C0AE19E34FCF00D01B0C /* MultiOperandMenu.xib in Resources */,
+				B5B0D61A19351EBE00CFE080 /* OperatorMenuView.xib in Resources */,
 				B5FDE47A192B4E3200C69253 /* Images.xcassets in Resources */,
+				B566B047192B9ED6000E7D4E /* Numberpad.xib in Resources */,
+				B51DFFBA19389D3A00A7FCB0 /* TickLabel.xib in Resources */,
+				B5B0D615193202EB00CFE080 /* ComposedTermView.xib in Resources */,
+				B51DFFBE1938A1EA00A7FCB0 /* PlotView.xib in Resources */,
+				B566B040192B8F70000E7D4E /* VariableView.xib in Resources */,
 				B5FDE46C192B4E3200C69253 /* InfoPlist.strings in Resources */,
 				B5FDE475192B4E3200C69253 /* Main.storyboard in Resources */,
+				B5D0C0A719E2923100D01B0C /* SingleOperandMenu.xib in Resources */,
+				B51DFFBC1938A18F00A7FCB0 /* resizeButton.tif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,9 +422,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5E2A4451938D8E100294210 /* Plot.m in Sources */,
+				B5D0C0AA19E2950300D01B0C /* MenuViewController.m in Sources */,
+				B566B03E192B8EB0000E7D4E /* VariableViewController.m in Sources */,
 				B5FDE478192B4E3200C69253 /* AlfyViewController.m in Sources */,
+				B566B04A192BD91D000E7D4E /* Variable.m in Sources */,
+				B5B0D6071930DDD600CFE080 /* ConstantViewController.m in Sources */,
+				B566B046192B9ED6000E7D4E /* NumberpadViewController.m in Sources */,
+				B5B0D610193201EF00CFE080 /* ComposedTerm.m in Sources */,
+				B566B03B192B8DDA000E7D4E /* TermViewController.m in Sources */,
+				B5E2A4441938D8E100294210 /* PlotView.m in Sources */,
+				B5B0D61F1935D2DA00CFE080 /* OperatorMenuViewController.m in Sources */,
 				B5FDE472192B4E3200C69253 /* AlfyAppDelegate.m in Sources */,
+				B5B0D614193202EB00CFE080 /* ComposedTermViewController.m in Sources */,
+				3BB1C819194256E10082EFBB /* ArrowView.m in Sources */,
+				B5FF8EF6193A135300E47FFA /* PlotViewController.m in Sources */,
 				B5FDE46E192B4E3200C69253 /* main.m in Sources */,
+				B5B0D6031930DD6300CFE080 /* Constant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,10 +565,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Alfy2/Alfy2-Prefix.pch";
 				INFOPLIST_FILE = "Alfy2/Alfy2-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -392,10 +581,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Alfy2/Alfy2-Prefix.pch";
 				INFOPLIST_FILE = "Alfy2/Alfy2-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -459,6 +651,7 @@
 				B5FDE492192B4E3200C69253 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B5FDE493192B4E3200C69253 /* Build configuration list for PBXNativeTarget "Alfy2Tests" */ = {
 			isa = XCConfigurationList;
@@ -467,6 +660,7 @@
 				B5FDE495192B4E3200C69253 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

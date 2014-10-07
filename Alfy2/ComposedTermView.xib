@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComposedTermViewController">
+            <connections>
+                <outlet property="formulaWebView" destination="OCe-o2-uP9" id="Q34-IO-Y9d"/>
+                <outlet property="valueLabel" destination="HxH-5E-ERQ" id="8g1-UO-xit"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="303" height="116"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <webView autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" mediaPlaybackAllowsAirPlay="NO" keyboardDisplayRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCe-o2-uP9">
+                    <rect key="frame" x="8" y="8" width="130" height="100"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                    <dataDetectorType key="dataDetectorTypes"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="Uzo-pq-CJC"/>
+                    </connections>
+                </webView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAo-qV-9WG">
+                    <rect key="frame" x="146" y="47" width="11" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HxH-5E-ERQ">
+                    <rect key="frame" x="165" y="47" width="130" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.71738138689999997" green="0.96855041060000002" blue="0.70448545669999996" alpha="1" colorSpace="calibratedRGB"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="MAo-qV-9WG" secondAttribute="centerX" id="562-gd-pjs"/>
+                <constraint firstItem="OCe-o2-uP9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="5d6-wh-Ti5"/>
+                <constraint firstAttribute="trailing" secondItem="HxH-5E-ERQ" secondAttribute="trailing" constant="8" id="5nh-uW-ENx"/>
+                <constraint firstAttribute="bottom" secondItem="OCe-o2-uP9" secondAttribute="bottom" constant="8" id="6B8-7W-AYD"/>
+                <constraint firstAttribute="centerY" secondItem="MAo-qV-9WG" secondAttribute="centerY" id="FF5-iS-7re"/>
+                <constraint firstAttribute="centerY" secondItem="HxH-5E-ERQ" secondAttribute="centerY" id="OkB-ig-4GR"/>
+                <constraint firstItem="HxH-5E-ERQ" firstAttribute="leading" secondItem="MAo-qV-9WG" secondAttribute="trailing" constant="8" id="TPk-sK-vxn"/>
+                <constraint firstItem="MAo-qV-9WG" firstAttribute="leading" secondItem="OCe-o2-uP9" secondAttribute="trailing" constant="8" id="d2h-DB-Hkf"/>
+                <constraint firstItem="OCe-o2-uP9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="mY9-Bp-RIO"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="gIi-Gv-yQv" appends="YES" id="n6t-4I-Xoe"/>
+                <outletCollection property="gestureRecognizers" destination="zJh-9l-wFY" appends="YES" id="VHl-R4-6KX"/>
+            </connections>
+            <point key="canvasLocation" x="148.5" y="163"/>
+        </view>
+        <panGestureRecognizer minimumNumberOfTouches="1" id="gIi-Gv-yQv">
+            <connections>
+                <action selector="dragView:" destination="-1" id="g50-j6-Dqk"/>
+            </connections>
+        </panGestureRecognizer>
+        <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.20000000000000004" id="zJh-9l-wFY">
+            <connections>
+                <action selector="touchHandler:" destination="-1" id="xp0-BC-cgv"/>
+            </connections>
+        </pongPressGestureRecognizer>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
