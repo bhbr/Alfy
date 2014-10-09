@@ -30,6 +30,7 @@
 		B5D0C0AA19E2950300D01B0C /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D0C0A919E2950300D01B0C /* MenuViewController.m */; };
 		B5D0C0AC19E34E5600D01B0C /* TwoOperandMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5D0C0AB19E34E5600D01B0C /* TwoOperandMenu.xib */; };
 		B5D0C0AE19E34FCF00D01B0C /* MultiOperandMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5D0C0AD19E34FCF00D01B0C /* MultiOperandMenu.xib */; };
+		B5D0C0B019E49E9100D01B0C /* TwoOperandMenuWithGraphButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5D0C0AF19E49E9100D01B0C /* TwoOperandMenuWithGraphButton.xib */; };
 		B5E2A4441938D8E100294210 /* PlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5E2A4411938D8E100294210 /* PlotView.m */; };
 		B5E2A4451938D8E100294210 /* Plot.m in Sources */ = {isa = PBXBuildFile; fileRef = B5E2A4431938D8E100294210 /* Plot.m */; };
 		B5FDE462192B4E3200C69253 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5FDE461192B4E3200C69253 /* Foundation.framework */; };
@@ -95,6 +96,7 @@
 		B5D0C0A919E2950300D01B0C /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		B5D0C0AB19E34E5600D01B0C /* TwoOperandMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoOperandMenu.xib; sourceTree = "<group>"; };
 		B5D0C0AD19E34FCF00D01B0C /* MultiOperandMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultiOperandMenu.xib; sourceTree = "<group>"; };
+		B5D0C0AF19E49E9100D01B0C /* TwoOperandMenuWithGraphButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoOperandMenuWithGraphButton.xib; sourceTree = "<group>"; };
 		B5E2A4401938D8E100294210 /* PlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotView.h; sourceTree = "<group>"; };
 		B5E2A4411938D8E100294210 /* PlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotView.m; sourceTree = "<group>"; };
 		B5E2A4421938D8E100294210 /* Plot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plot.h; sourceTree = "<group>"; };
@@ -256,11 +258,12 @@
 				B5B0D60D193201BB00CFE080 /* Numberpad */,
 				B5B0D61C19351ED000CFE080 /* Operator Menu */,
 				B5FDE473192B4E3200C69253 /* Main.storyboard */,
-				B5FDE476192B4E3200C69253 /* AlfyViewController.h */,
-				B5FDE477192B4E3200C69253 /* AlfyViewController.m */,
 				B5D0C0A619E2923100D01B0C /* SingleOperandMenu.xib */,
 				B5D0C0AB19E34E5600D01B0C /* TwoOperandMenu.xib */,
+				B5D0C0AF19E49E9100D01B0C /* TwoOperandMenuWithGraphButton.xib */,
 				B5D0C0AD19E34FCF00D01B0C /* MultiOperandMenu.xib */,
+				B5FDE476192B4E3200C69253 /* AlfyViewController.h */,
+				B5FDE477192B4E3200C69253 /* AlfyViewController.m */,
 				B5D0C0A819E2950200D01B0C /* MenuViewController.h */,
 				B5D0C0A919E2950300D01B0C /* MenuViewController.m */,
 				B566B039192B8DDA000E7D4E /* TermViewController.h */,
@@ -391,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5B0D609193142D200CFE080 /* ConstantView.xib in Resources */,
+				B5D0C0B019E49E9100D01B0C /* TwoOperandMenuWithGraphButton.xib in Resources */,
 				B5D0C0AC19E34E5600D01B0C /* TwoOperandMenu.xib in Resources */,
 				B5D0C0AE19E34FCF00D01B0C /* MultiOperandMenu.xib in Resources */,
 				B5B0D61A19351EBE00CFE080 /* OperatorMenuView.xib in Resources */,

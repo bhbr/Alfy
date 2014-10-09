@@ -18,7 +18,6 @@
 
 @property (nonatomic) IBOutlet UILabel *valueLabel;
 @property (nonatomic) id <Term> term;
-@property (nonatomic) id <TermSelectionHandler> delegate;
 @property (nonatomic) id <ArrowDrawer> arrowDrawer;
 @property (nonatomic) IBOutlet UIWebView *formulaWebView;
 @property (nonatomic) UIColor *highlightColor;

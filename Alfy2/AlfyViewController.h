@@ -13,10 +13,6 @@
 
 @protocol TermSelectionHandler <UIGestureRecognizerDelegate>
 
-- (void)highlightTermForView:(UIView *)termView;
-- (void)unhighlightTermForView:(UIView *)termView;
-
-- (BOOL)isTermView:(UIView *)someView;
 
 - (void)termTouchDown:(id <Term>)term;
 - (void)termTouchUp:(id <Term>)term;
@@ -48,9 +44,20 @@
 @end
 
 
+@protocol TermHighlighter
+
+- (void)highlightTerm:(id <Term>)term;
+- (void)unhighlightTerm:(id <Term>)term;
+
+@end
+
+
 @interface AlfyViewController : UIViewController <TermSelectionHandler,
                                                   TermUpdater,
-                                                  ArrowDrawer>
+                                                  ArrowDrawer,
+                                                  MenuVCDelegate,
+                                                  UIPopoverControllerDelegate,
+                                                  TermHighlighter>
 
 
 @end

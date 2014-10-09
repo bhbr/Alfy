@@ -173,9 +173,41 @@
 
 
 
+
+
+
+
+
+
+
 // this method prevents touches on the slider from triggering dragging
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
     return !CGRectContainsPoint(self.slider.frame, [touch locationInView:gestureRecognizer.view]);
 }
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

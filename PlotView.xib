@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlotViewController">
@@ -17,7 +17,6 @@
             <subviews>
                 <imageView alpha="0.20000000000000001" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resizeButton.tif" translatesAutoresizingMaskIntoConstraints="NO" id="FB7-O6-UwK">
                     <rect key="frame" x="275" y="0.0" width="25" height="25"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="tdE-gV-0Ht"/>
@@ -34,6 +33,7 @@
                 <constraint firstItem="FB7-O6-UwK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="JI0-wF-0Cz"/>
                 <constraint firstAttribute="trailing" secondItem="FB7-O6-UwK" secondAttribute="trailing" id="LkQ-qL-nLp"/>
             </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outletCollection property="gestureRecognizers" destination="rCh-9x-rn0" appends="YES" id="zLc-jb-9S6"/>
@@ -65,4 +65,9 @@
     <resources>
         <image name="resizeButton.tif" width="173" height="173"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

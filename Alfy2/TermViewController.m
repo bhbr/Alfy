@@ -23,7 +23,6 @@
 @synthesize previousCenter;
 @synthesize valueLabel;
 @synthesize term;
-@synthesize delegate;
 @synthesize popoverController;
 @synthesize arrowDrawer;
 @synthesize formulaWebView;

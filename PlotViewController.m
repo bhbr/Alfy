@@ -24,7 +24,12 @@
     self = [self initWithNibName:@"PlotView" bundle:nil];
     self.view.center = CGPointMake(100, 100);
     _plot = initialPlot;
-    self.plot.frame = self.plotView.frame;
+    
+    if (self.plot.frame.size.width == 0) {
+        self.plot.frame = self.plotView.frame;
+    } else {
+        self.plotView.frame = self.plot.frame;
+    }
     
     _plotView.xmin = self.plot.xmin;
     _plotView.xmax = self.plot.xmax;
@@ -58,9 +63,9 @@
 
 
 - (IBAction)plotSingleTapped {
-//    [self.delegate highlightTerm:self.plot.variable];
-//    [self.delegate highlightTerm:self.plot.xTerm];
-//    [self.delegate highlightTerm:self.plot.yTerm];
+    [self.delegate highlightTerm:self.plot.variable];
+    [self.delegate highlightTerm:self.plot.xTerm];
+    [self.delegate highlightTerm:self.plot.yTerm];
 }
 
 - (IBAction)dragView:(UIPanGestureRecognizer *)sender {

@@ -16,7 +16,7 @@
 
 @property (nonatomic) Plot *plot;
 @property (nonatomic) IBOutlet PlotView *plotView;
-@property (nonatomic) id delegate; // <TermHighlighter> delegate;
+@property (nonatomic) id <TermHighlighter> delegate;
 
 - (instancetype)initWithPlot:(Plot *)initialPlot;
 
