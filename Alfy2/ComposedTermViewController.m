@@ -96,6 +96,7 @@
     [self.registrator registerComposedTermForViewController:self];
     [self.formulaTextField removeFromSuperview];
     [self prepareFormulaWebView];
+    NSLog([NSString stringWithFormat:@"%g", self.composedTerm.value]);
     self.valueLabel.text = [NSString stringWithFormat:@"%g", self.composedTerm.value];
     [self.view setNeedsDisplay];
 }

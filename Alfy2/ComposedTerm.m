@@ -71,6 +71,7 @@
 
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
     float originX = [aDecoder decodeFloatForKey:@"originX"];
     float originY = [aDecoder decodeFloatForKey:@"originY"];
     float width = [aDecoder decodeFloatForKey:@"width"];
@@ -92,6 +93,7 @@
 }
 
 - (instancetype)initWithParents:(NSArray *)initialParents andOperator:(NSString *)initialOperatorString {
+    self = [super init];
     NSLog(@"Composed Term initWithParents");
     self.parents = [initialParents mutableCopy];
     self.operatorString = [initialOperatorString mutableCopy];
@@ -100,58 +102,109 @@
 }
 
 
-
-- (instancetype)initWithFormulaString:(NSString *)formulaString andVariableFetcher:(id <VariableFetcher>)aFetcher {
-    NSLog([NSString stringWithFormat:@"ComposedTerm initWithFormulaString: %@", formulaString]);
+- (instancetype)initWithArray:(NSArray *)formulaArray andVariableFetcher:(id <VariableFetcher>)aFetcher {
+    
     self = [super init];
-    
-    NSArray *formulaArray = [ComposedTerm arrayDescriptionOfFormulaString:formulaString];
-    NSArray *firstLevelDescription = [ComposedTerm firstLevelDescriptionOfFormulaArray:formulaArray];
-    
-    self.operatorString = [firstLevelDescription objectAtIndex:0];
-    
-    self.variableFetcher = aFetcher;
-    
-    NSArray *parentFormulaArrays = [firstLevelDescription objectAtIndex:1];
-    
-    if ([parentFormulaArrays count] == 1) {
-        id <Term> parent = [self makeTermWithFormulaArray:[parentFormulaArrays objectAtIndex:0]];
-        self.parents = [@[parent] mutableCopy];
-    } else if ([parentFormulaArrays count] == 2) {
-        id <Term> parent1 = [self makeTermWithFormulaArray:[parentFormulaArrays objectAtIndex:0]];
-        id <Term> parent2 = [self makeTermWithFormulaArray:[parentFormulaArrays objectAtIndex:1]];
-        self.parents = [@[parent1, parent2] mutableCopy];
-    }
-    
+    self = (ComposedTerm *)[ComposedTerm makeTermWithArray:formulaArray andVariableFetcher:aFetcher];
     return self;
+    
 }
 
 
-- (id <Term>) makeTermWithFormulaArray:(NSArray *)formulaArray {
-    NSLog([NSString stringWithFormat:@"ComposedTerm makeTermWithFormulaArray: %@", formulaArray]);
++ (id <Term>)makeTermWithArray:(NSArray *)formulaArray andVariableFetcher:(id <VariableFetcher>)aFetcher {
     
     if ([ComposedTerm arrayContainsASingleNumber:formulaArray]) {
         
+        float value = [[formulaArray firstObject] floatValue];
         Constant *constant = [[Constant alloc] init];
-        constant.value = [[formulaArray firstObject] floatValue];
-        return constant;
-    
+        constant.value = value;
+        
+        return (id <Term>)constant;
+        
     } else if ([ComposedTerm arrayContainsASingleVariableName:formulaArray]) {
         
-        return (id <Term>)[self.variableFetcher variableWithName:[formulaArray firstObject]];
+        Variable *variable = [aFetcher variableWithName:[formulaArray firstObject]];
+        
+        return (id <Term>)variable;
         
     } else {
         
-        NSMutableString *formulaString = [@"" mutableCopy];
-        for (NSString *element in formulaArray) {
-            [formulaString appendString:element];
+        NSString *operator = [formulaArray firstObject];
+        id <Term> rightOperand = [ComposedTerm makeTermWithArray:[formulaArray lastObject] andVariableFetcher:aFetcher];
+        
+        if ([formulaArray count] == 3) {
+            
+            id <Term> leftOperand = [ComposedTerm makeTermWithArray:[formulaArray objectAtIndex:1] andVariableFetcher:aFetcher];
+            return [[ComposedTerm alloc] initWithParents:@[leftOperand,rightOperand] andOperator:operator];
+        } else {
+            return [[ComposedTerm alloc] initWithParents:@[rightOperand] andOperator:operator];
         }
         
-        ComposedTerm *composedTerm = [[ComposedTerm alloc] initWithFormulaString:formulaString andVariableFetcher:self.variableFetcher];
-        return composedTerm;
     }
+
+}
+
+
+- (instancetype)initWithFormulaString:(NSString *)formulaString andVariableFetcher:(id<VariableFetcher>)aFetcher {
+    
+    self = [super init];
+    NSArray *formulaArray = [ComposedTerm formulaStringParser:formulaString];
+    self = [self initWithArray:formulaArray andVariableFetcher:aFetcher];
+    return self;
     
 }
+
+//- (instancetype)initWithFormulaString:(NSString *)formulaString andVariableFetcher:(id <VariableFetcher>)aFetcher {
+//    NSLog([NSString stringWithFormat:@"ComposedTerm initWithFormulaString: %@", formulaString]);
+//    self = [super init];
+//    
+//    NSArray *formulaArray = [ComposedTerm arrayDescriptionOfFormulaString:formulaString];
+//    NSArray *firstLevelDescription = [ComposedTerm firstLevelDescriptionOfFormulaArray:formulaArray];
+//    
+//    self.operatorString = [firstLevelDescription objectAtIndex:0];
+//    
+//    self.variableFetcher = aFetcher;
+//    
+//    NSArray *parentFormulaArrays = [firstLevelDescription objectAtIndex:1];
+//    
+//    if ([parentFormulaArrays count] == 1) {
+//        id <Term> parent = [self makeTermWithFormulaArray:[parentFormulaArrays objectAtIndex:0]];
+//        self.parents = [@[parent] mutableCopy];
+//    } else if ([parentFormulaArrays count] == 2) {
+//        id <Term> parent1 = [self makeTermWithFormulaArray:[parentFormulaArrays objectAtIndex:0]];
+//        id <Term> parent2 = [self makeTermWithFormulaArray:[parentFormulaArrays objectAtIndex:1]];
+//        self.parents = [@[parent1, parent2] mutableCopy];
+//    }
+//    
+//    return self;
+//}
+//
+//
+//- (id <Term>) makeTermWithFormulaArray:(NSArray *)formulaArray {
+//    NSLog([NSString stringWithFormat:@"ComposedTerm makeTermWithFormulaArray: %@", formulaArray]);
+//    
+//    if ([ComposedTerm arrayContainsASingleNumber:formulaArray]) {
+//        
+//        Constant *constant = [[Constant alloc] init];
+//        constant.value = [[formulaArray firstObject] floatValue];
+//        return constant;
+//    
+//    } else if ([ComposedTerm arrayContainsASingleVariableName:formulaArray]) {
+//        
+//        return (id <Term>)[self.variableFetcher variableWithName:[formulaArray firstObject]];
+//        
+//    } else {
+//        
+//        NSMutableString *formulaString = [@"" mutableCopy];
+//        for (NSString *element in formulaArray) {
+//            [formulaString appendString:element];
+//        }
+//        
+//        ComposedTerm *composedTerm = [[ComposedTerm alloc] initWithFormulaString:formulaString andVariableFetcher:self.variableFetcher];
+//        return composedTerm;
+//    }
+//    
+//}
 
 
 + (BOOL)isAVariableName:(NSString *)formulaString {
@@ -208,7 +261,7 @@
     
     if ([self.operatorString isEqualToString:@"+"]) {
         result = [parent1 value] + [parent2 value];
-    } else if ([self.operatorString isEqualToString:@"-"]) {
+    } else if ([self.operatorString isEqualToString:@"–"]) {
         result = [parent1 value] - [parent2 value];
     } else if ([self.operatorString isEqualToString:@"·"]) {
         result = [parent1 value] * [parent2 value];
@@ -368,8 +421,9 @@
             } else {
                 [returnString appendString:[parent1 formula]];
             }
+            [returnString appendString:@"<mrow>"];
             [returnString appendString:[parent2 formula]];
-            [returnString appendString:@"</msup>"];
+            [returnString appendString:@"</mrow></msup>"];
 
         } else if ([self.operatorString isEqualToString:@"√"]) {
             
@@ -461,64 +515,121 @@
 }
 
 
-+ (NSArray *)firstLevelDescriptionOfFormulaArray:(NSArray *)formulaArray {
+//+ (NSArray *)firstLevelDescriptionOfFormulaArray:(NSArray *)formulaArray {
+//    
+//    NSMutableArray *indexesOfOuterOperators = [[NSMutableArray alloc] init];
+//    for (long i = [formulaArray count] - 1; i >= 0; i--) {
+//        if ([ComposedTerm bracketLevelAtIndex:i inFormulaArray:formulaArray] == 0
+//            && [ComposedTerm isAnOperator:[formulaArray objectAtIndex:i]]) {
+//            [indexesOfOuterOperators addObject:[NSNumber numberWithLong:i]];
+//        }
+//    }
+//    
+//    // if there are no outer operators, delete enclosing parentheses and feed back into yourself
+//    if (!indexesOfOuterOperators) {
+//        NSRange innerRange = NSMakeRange(1, [formulaArray count] - 2);
+//        NSArray *innerFormulaArray = [formulaArray subarrayWithRange:innerRange];
+//        return [ComposedTerm firstLevelDescriptionOfFormulaArray:innerFormulaArray];
+//    } else {
+//        
+//        NSMutableString *currentOutermostOperator = [[NSMutableString alloc] init];
+//        NSMutableString *weakestEncounteredOutermostOperator = [[NSMutableString alloc] init];
+//        int highestEncounteredPrecedenceLevel = 0;
+//        int newPrecedenceLevel;
+//        long indexOfWeakestEncounteredOutermostOperator = 0;
+//        long index = 0;
+//        
+//        for (long i = [indexesOfOuterOperators count] - 1; i >= 0; i--) {
+//            index = [[indexesOfOuterOperators objectAtIndex:i] longValue];
+//            currentOutermostOperator = [formulaArray objectAtIndex:index];
+//            newPrecedenceLevel = [ComposedTerm precedenceLevelOfOperator:currentOutermostOperator];
+//            if (currentOutermostOperator && newPrecedenceLevel > highestEncounteredPrecedenceLevel) {
+//                weakestEncounteredOutermostOperator = currentOutermostOperator;
+//                indexOfWeakestEncounteredOutermostOperator = index;
+//            }
+//        }
+//        
+//        long indexRightFromWeakestEncounteredoutermostOperator = indexOfWeakestEncounteredOutermostOperator + [weakestEncounteredOutermostOperator length];
+//        NSArray *rightOperand = [formulaArray subarrayWithRange:NSMakeRange(indexRightFromWeakestEncounteredoutermostOperator, [formulaArray count] - indexRightFromWeakestEncounteredoutermostOperator)];
+//        
+//        if ([ComposedTerm isTrigonometricOperator:weakestEncounteredOutermostOperator]) {
+//            return @[weakestEncounteredOutermostOperator, @[rightOperand]];
+//        } else if ([ComposedTerm isBinaryOperator:weakestEncounteredOutermostOperator]) {
+//            NSArray *leftOperand = [formulaArray subarrayWithRange:NSMakeRange(0, indexOfWeakestEncounteredOutermostOperator)];
+//            return @[weakestEncounteredOutermostOperator, @[leftOperand, rightOperand]];
+//        } else {
+//            return nil;
+//        }
+//        
+//    }
+//    
+//}
+
+
+
++ (NSArray *)formulaStringParser:(NSString *)formulaString {
     
-    NSMutableArray *indexesOfOuterOperators = [[NSMutableArray alloc] init];
-    for (long i = [formulaArray count] - 1; i >= 0; i--) {
-        if ([ComposedTerm bracketLevelAtIndex:i inFormulaArray:formulaArray] == 0
-            && [ComposedTerm isAnOperator:[formulaArray objectAtIndex:i]]) {
-            [indexesOfOuterOperators addObject:[NSNumber numberWithLong:i]];
-        }
-    }
+    NSArray *formulaArray = [ComposedTerm arrayDescriptionOfFormulaString:formulaString];
     
-    // if there are no outer operators, delete enclosing parentheses and feed back into yourself
-    if (!indexesOfOuterOperators) {
-        NSRange innerRange = NSMakeRange(1, [formulaArray count] - 2);
-        NSArray *innerFormulaArray = [formulaArray subarrayWithRange:innerRange];
-        return [ComposedTerm firstLevelDescriptionOfFormulaArray:innerFormulaArray];
-    } else {
-        
-        NSMutableString *currentOutermostOperator = [[NSMutableString alloc] init];
-        NSMutableString *weakestEncounteredOutermostOperator = [[NSMutableString alloc] init];
-        int highestEncounteredPrecedenceLevel = 0;
-        int newPrecedenceLevel;
-        long indexOfWeakestEncounteredOutermostOperator = 0;
-        long index = 0;
-        
-        for (long i = [indexesOfOuterOperators count] - 1; i >= 0; i--) {
-            index = [[indexesOfOuterOperators objectAtIndex:i] longValue];
-            currentOutermostOperator = [formulaArray objectAtIndex:index];
-            newPrecedenceLevel = [ComposedTerm precedenceLevelOfOperator:currentOutermostOperator];
-            if (currentOutermostOperator && newPrecedenceLevel > highestEncounteredPrecedenceLevel) {
-                weakestEncounteredOutermostOperator = currentOutermostOperator;
-                indexOfWeakestEncounteredOutermostOperator = index;
-            }
-        }
-        
-        long indexRightFromWeakestEncounteredoutermostOperator = indexOfWeakestEncounteredOutermostOperator + [weakestEncounteredOutermostOperator length];
-        NSArray *rightOperand = [formulaArray subarrayWithRange:NSMakeRange(indexRightFromWeakestEncounteredoutermostOperator, [formulaArray count] - indexRightFromWeakestEncounteredoutermostOperator)];
-        
-        if ([ComposedTerm isTrigonometricOperator:weakestEncounteredOutermostOperator]) {
-            return @[weakestEncounteredOutermostOperator, @[rightOperand]];
-        } else if ([ComposedTerm isBinaryOperator:weakestEncounteredOutermostOperator]) {
-            NSArray *leftOperand = [formulaArray subarrayWithRange:NSMakeRange(0, indexOfWeakestEncounteredOutermostOperator)];
-            return @[weakestEncounteredOutermostOperator, @[leftOperand, rightOperand]];
-        } else {
-            return nil;
-        }
-        
-    }
+    return [ComposedTerm formulaArrayParser:formulaArray];
     
 }
 
 
 
 
++ (NSArray *)formulaArrayParser:(NSArray *)formulaArray {
+    
+    if ([ComposedTerm arrayContainsASingleNumber:formulaArray] || [ComposedTerm arrayContainsASingleVariableName:formulaArray]) {
+        
+        return formulaArray;
+        
+    } else {
+        
+        long i = [ComposedTerm indexOfOutermostWeakestOperatorInFormulaArray:formulaArray];
+        
+        if (i == NSNotFound) {
+            // remove outer brackets
+            NSArray *innerFormulaArray = [formulaArray subarrayWithRange:NSMakeRange(1, [formulaArray count] - 2)];
+            return [ComposedTerm formulaArrayParser:innerFormulaArray];
+        }
+        
+        NSString *outermostWeakestOperator = [formulaArray objectAtIndex:i];
+        NSArray *rightOperandArray = [formulaArray subarrayWithRange:NSMakeRange(i+1, [formulaArray count] - i - 1)];
+        if (i != 0) {
+            NSArray *leftOperandArray = [formulaArray subarrayWithRange:NSMakeRange(0, i)];
+            return @[outermostWeakestOperator,[ComposedTerm formulaArrayParser:leftOperandArray],[ComposedTerm formulaArrayParser:rightOperandArray]];
+        } else {
+            return @[outermostWeakestOperator,[ComposedTerm formulaArrayParser:rightOperandArray]];
+        }
+        
+    }
+    
 
+}
 
-
-
-
++ (long)indexOfOutermostWeakestOperatorInFormulaArray:(NSArray *)formulaArray {
+    
+    int highestPrecedenceLevel = 0;
+    int currentPrecedenceLevel;
+    long currentIndex = NSNotFound;
+    NSString *currentSymbol = [[NSString alloc] init];
+    
+    for (long i = [formulaArray count] - 1; i >= 0; i--) {
+        
+        currentSymbol = [formulaArray objectAtIndex:i];
+        if ([ComposedTerm isAnOperator:currentSymbol] && [ComposedTerm bracketLevelAtIndex:i inFormulaArray:formulaArray] == 0) {
+            currentPrecedenceLevel = [ComposedTerm precedenceLevelOfOperator:currentSymbol];
+            if (currentPrecedenceLevel > highestPrecedenceLevel) {
+                currentIndex = i;
+                highestPrecedenceLevel = currentPrecedenceLevel;
+            }
+        }
+        
+    }
+    
+    return currentIndex;
+}
 
 
 
