@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3BB1C819194256E10082EFBB /* ArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB1C818194256E10082EFBB /* ArrowView.m */; };
+		B51D8C8219E6F15B0082D0D4 /* Formula.m in Sources */ = {isa = PBXBuildFile; fileRef = B51D8C8119E6F15B0082D0D4 /* Formula.m */; };
 		B51DFFBA19389D3A00A7FCB0 /* TickLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = B51DFFB819389D3A00A7FCB0 /* TickLabel.xib */; };
 		B51DFFBC1938A18F00A7FCB0 /* resizeButton.tif in Resources */ = {isa = PBXBuildFile; fileRef = B51DFFBB1938A18F00A7FCB0 /* resizeButton.tif */; };
 		B51DFFBE1938A1EA00A7FCB0 /* PlotView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B51DFFBD1938A1EA00A7FCB0 /* PlotView.xib */; };
@@ -63,6 +64,8 @@
 /* Begin PBXFileReference section */
 		3BB1C817194256E10082EFBB /* ArrowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrowView.h; sourceTree = "<group>"; };
 		3BB1C818194256E10082EFBB /* ArrowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrowView.m; sourceTree = "<group>"; };
+		B51D8C7E19E6E29C0082D0D4 /* Formula.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Formula.h; sourceTree = "<group>"; };
+		B51D8C8119E6F15B0082D0D4 /* Formula.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Formula.m; sourceTree = "<group>"; };
 		B51DFFB819389D3A00A7FCB0 /* TickLabel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TickLabel.xib; sourceTree = "<group>"; };
 		B51DFFBB1938A18F00A7FCB0 /* resizeButton.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = resizeButton.tif; sourceTree = "<group>"; };
 		B51DFFBD1938A1EA00A7FCB0 /* PlotView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlotView.xib; sourceTree = "<group>"; };
@@ -97,6 +100,7 @@
 		B5D0C0AB19E34E5600D01B0C /* TwoOperandMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoOperandMenu.xib; sourceTree = "<group>"; };
 		B5D0C0AD19E34FCF00D01B0C /* MultiOperandMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultiOperandMenu.xib; sourceTree = "<group>"; };
 		B5D0C0AF19E49E9100D01B0C /* TwoOperandMenuWithGraphButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoOperandMenuWithGraphButton.xib; sourceTree = "<group>"; };
+		B5D0C0B119EBFF1400D01B0C /* Protocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Protocols.h; sourceTree = "<group>"; };
 		B5E2A4401938D8E100294210 /* PlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotView.h; sourceTree = "<group>"; };
 		B5E2A4411938D8E100294210 /* PlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotView.m; sourceTree = "<group>"; };
 		B5E2A4421938D8E100294210 /* Plot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plot.h; sourceTree = "<group>"; };
@@ -113,7 +117,7 @@
 		B5FDE471192B4E3200C69253 /* AlfyAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlfyAppDelegate.m; sourceTree = "<group>"; };
 		B5FDE474192B4E3200C69253 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B5FDE476192B4E3200C69253 /* AlfyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlfyViewController.h; sourceTree = "<group>"; };
-		B5FDE477192B4E3200C69253 /* AlfyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlfyViewController.m; sourceTree = "<group>"; };
+		B5FDE477192B4E3200C69253 /* AlfyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AlfyViewController.m; sourceTree = "<group>"; };
 		B5FDE479192B4E3200C69253 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B5FDE47F192B4E3200C69253 /* Alfy2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Alfy2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5FDE480192B4E3200C69253 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -257,6 +261,8 @@
 			children = (
 				B5B0D60D193201BB00CFE080 /* Numberpad */,
 				B5B0D61C19351ED000CFE080 /* Operator Menu */,
+				B5B0D60A1931FD4900CFE080 /* Term.h */,
+				B5D0C0B119EBFF1400D01B0C /* Protocols.h */,
 				B5FDE473192B4E3200C69253 /* Main.storyboard */,
 				B5D0C0A619E2923100D01B0C /* SingleOperandMenu.xib */,
 				B5D0C0AB19E34E5600D01B0C /* TwoOperandMenu.xib */,
@@ -264,11 +270,12 @@
 				B5D0C0AD19E34FCF00D01B0C /* MultiOperandMenu.xib */,
 				B5FDE476192B4E3200C69253 /* AlfyViewController.h */,
 				B5FDE477192B4E3200C69253 /* AlfyViewController.m */,
+				B51D8C7E19E6E29C0082D0D4 /* Formula.h */,
+				B51D8C8119E6F15B0082D0D4 /* Formula.m */,
 				B5D0C0A819E2950200D01B0C /* MenuViewController.h */,
 				B5D0C0A919E2950300D01B0C /* MenuViewController.m */,
 				B566B039192B8DDA000E7D4E /* TermViewController.h */,
 				B566B03A192B8DDA000E7D4E /* TermViewController.m */,
-				B5B0D60A1931FD4900CFE080 /* Term.h */,
 				3BB1C817194256E10082EFBB /* ArrowView.h */,
 				3BB1C818194256E10082EFBB /* ArrowView.m */,
 				B51DFFB619389D0A00A7FCB0 /* Plot */,
@@ -436,6 +443,7 @@
 				B5B0D610193201EF00CFE080 /* ComposedTerm.m in Sources */,
 				B566B03B192B8DDA000E7D4E /* TermViewController.m in Sources */,
 				B5E2A4441938D8E100294210 /* PlotView.m in Sources */,
+				B51D8C8219E6F15B0082D0D4 /* Formula.m in Sources */,
 				B5B0D61F1935D2DA00CFE080 /* OperatorMenuViewController.m in Sources */,
 				B5FDE472192B4E3200C69253 /* AlfyAppDelegate.m in Sources */,
 				B5B0D614193202EB00CFE080 /* ComposedTermViewController.m in Sources */,

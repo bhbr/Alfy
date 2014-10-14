@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Term.h"
-#import "AlfyViewController.h"
+#import "Protocols.h"
 #import "OperatorMenuViewController.h"
 
 

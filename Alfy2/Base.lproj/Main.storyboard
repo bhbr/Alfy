@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NU2-9O-mcP">
-                                        <rect key="frame" x="612" y="20" width="55" height="30"/>
+                                        <rect key="frame" x="558" y="20" width="55" height="30"/>
                                         <state key="normal" title="Variable">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -29,7 +29,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9f-f1-hQS">
-                                        <rect key="frame" x="687" y="20" width="63" height="30"/>
+                                        <rect key="frame" x="633" y="20" width="63" height="30"/>
                                         <state key="normal" title="Constant">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -38,7 +38,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfn-AD-Puw">
-                                        <rect key="frame" x="556" y="24" width="36" height="18"/>
+                                        <rect key="frame" x="502" y="24" width="36" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -76,22 +76,33 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBM-OS-FjX">
+                                        <rect key="frame" x="716" y="20" width="34" height="30"/>
+                                        <state key="normal" title="Term">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="newTermButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="8yk-2x-VZf"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="cfn-AD-Puw" firstAttribute="top" secondItem="D1I-id-NcL" secondAttribute="top" constant="24" id="0Er-MM-h8H"/>
                                     <constraint firstItem="U9f-f1-hQS" firstAttribute="leading" secondItem="NU2-9O-mcP" secondAttribute="trailing" constant="20" id="4dl-2i-zjD"/>
+                                    <constraint firstItem="bBM-OS-FjX" firstAttribute="top" secondItem="D1I-id-NcL" secondAttribute="top" constant="20" id="KvR-yg-pLj"/>
                                     <constraint firstItem="opo-DQ-sWk" firstAttribute="leading" secondItem="FbC-Cn-Qz5" secondAttribute="trailing" constant="20" id="NH1-S9-s05"/>
                                     <constraint firstItem="opo-DQ-sWk" firstAttribute="top" secondItem="D1I-id-NcL" secondAttribute="top" constant="20" id="Q5b-g7-ThU"/>
                                     <constraint firstItem="NU2-9O-mcP" firstAttribute="top" secondItem="D1I-id-NcL" secondAttribute="top" constant="20" id="Sob-VI-e1S"/>
                                     <constraint firstItem="1pN-ab-9wi" firstAttribute="top" secondItem="D1I-id-NcL" secondAttribute="top" constant="20" id="SuH-Oe-Jf7"/>
                                     <constraint firstItem="FbC-Cn-Qz5" firstAttribute="top" secondItem="D1I-id-NcL" secondAttribute="top" constant="20" id="WiU-xs-rmO"/>
+                                    <constraint firstAttribute="trailing" secondItem="bBM-OS-FjX" secondAttribute="trailing" constant="18" id="ZTw-Df-pa8"/>
                                     <constraint firstItem="1pN-ab-9wi" firstAttribute="leading" secondItem="D1I-id-NcL" secondAttribute="leading" constant="20" id="hJv-3C-WYB"/>
                                     <constraint firstItem="NU2-9O-mcP" firstAttribute="leading" secondItem="cfn-AD-Puw" secondAttribute="trailing" constant="20" id="lI5-l9-KTX"/>
-                                    <constraint firstAttribute="trailing" secondItem="U9f-f1-hQS" secondAttribute="trailing" constant="18" id="pAk-Ii-joi"/>
                                     <constraint firstItem="FbC-Cn-Qz5" firstAttribute="leading" secondItem="1pN-ab-9wi" secondAttribute="trailing" constant="20" id="t5H-8D-wvs"/>
                                     <constraint firstItem="U9f-f1-hQS" firstAttribute="top" secondItem="D1I-id-NcL" secondAttribute="top" constant="20" id="w5N-R0-2HA"/>
+                                    <constraint firstItem="bBM-OS-FjX" firstAttribute="leading" secondItem="U9f-f1-hQS" secondAttribute="trailing" constant="20" id="x0t-eG-rw5"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="eim-QS-U4W" appends="YES" id="UOI-y7-qOO"/>

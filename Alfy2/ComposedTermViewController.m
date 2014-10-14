@@ -10,16 +10,16 @@
 
 @interface ComposedTermViewController ()
 
-//@property (nonatomic) IBOutlet UILabel *operatorLabel;
-@property (nonatomic) IBOutlet UIWebView *formula;
+@property (nonatomic) IBOutlet UITextField *formulaTextField;
 
 @end
 
 @implementation ComposedTermViewController
 
 @synthesize composedTerm;
-//@synthesize operatorLabel;
-@synthesize formula;
+@synthesize formulaTextField;
+//@synthesize parser;
+@synthesize registrator;
 
 
 - (instancetype)initWithComposedTerm:(ComposedTerm *)initialComposedTerm {
@@ -33,10 +33,15 @@
         self.view.frame = self.composedTerm.frame;
     }
     
-//    self.operatorLabel.text = self.composedTerm.operatorString;
     self.valueLabel.text = [NSString stringWithFormat:@"%g", self.composedTerm.value];
     
-    [self prepareFormulaWebView];
+    if (self.composedTerm) {
+        [self prepareFormulaWebView];
+    }
+    self.formulaTextField.userInteractionEnabled = NO;
+    self.formulaTextField.alpha = 0;
+    self.formulaTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.formulaTextField.spellCheckingType = UITextSpellCheckingTypeNo;
 
     self.unhighlightColor = [UIColor colorWithRed:183./255. green:247./255. blue:180./255 alpha:1];
     self.highlightColor = [UIColor colorWithRed:142./255 green:235./255 blue:180./255 alpha:1];
@@ -69,6 +74,32 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)startFormulaEditing {
+    self.formulaTextField.userInteractionEnabled = YES;
+    self.formulaTextField.alpha = 1;
+    [self.formulaTextField becomeFirstResponder];
+}
+
+
+- (IBAction)formulaEditingEnded {
+    
+    //Formula *formula = [[Formula alloc] initWithString:self.formulaTextField.text];
+    
+    //self.composedTerm = [self.parser createTermForFormula:formula];
+    NSMutableString *formula = [self.formulaTextField.text mutableCopy];
+    [formula replaceOccurrencesOfString:@"-" withString:@"–" options:0 range:NSMakeRange(0, [formula length])];
+    [formula replaceOccurrencesOfString:@"*" withString:@"·" options:0 range:NSMakeRange(0, [formula length])];
+    
+    self.composedTerm = [[ComposedTerm alloc] initWithFormulaString:formula andVariableFetcher:self.variableFetcher];
+    self.term = self.composedTerm;
+    [self.registrator registerComposedTermForViewController:self];
+    [self.formulaTextField removeFromSuperview];
+    [self prepareFormulaWebView];
+    self.valueLabel.text = [NSString stringWithFormat:@"%g", self.composedTerm.value];
+    [self.view setNeedsDisplay];
+}
+
 
 
 @end

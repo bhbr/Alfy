@@ -9,7 +9,7 @@
 #import "AlfyViewController.h"
 #import "ConstantViewController.h"
 #import "VariableViewController.h"
-#import "ComposedTermViewController.h"
+//#import "ComposedTermViewController.h"
 #import "PlotViewController.h"
 #import "MenuViewController.h"
 
@@ -141,6 +141,46 @@
 }
 
 
+- (IBAction)newTermButtonPressed {
+    
+//    ComposedTerm *newComposedTerm = [[ComposedTerm alloc] init];
+//    
+    ComposedTermViewController *newComposedTermVC = [[ComposedTermViewController alloc] initWithComposedTerm:nil];//]newComposedTerm];
+//    
+    newComposedTermVC.arrowDrawer = self;
+    newComposedTermVC.selectionHandlerDelegate = self;
+    newComposedTermVC.variableFetcher = self;
+//    
+//    [self.composedTerms addObject:newComposedTermVC.composedTerm];
+//    [self.terms addObject:newComposedTermVC.composedTerm];
+    
+    newComposedTermVC.view.center = CGPointMake(self.view.center.x, self.view.center.y-200);
+//    newComposedTerm.frame = newComposedTermVC.view.frame;
+    [self.view addSubview:newComposedTermVC.view];
+    
+    [self addChildViewController:newComposedTermVC];
+    [self.composedTermVCs addObject:newComposedTermVC];
+    [self.termVCs addObject:newComposedTermVC];
+    
+    newComposedTermVC.arrowDrawer = self;
+    //newComposedTermVC.parser = self;
+    newComposedTermVC.registrator = self;
+    
+   [newComposedTermVC startFormulaEditing];
+    
+}
+
+//
+
+- (void)registerComposedTermForViewController:(ComposedTermViewController *)composedTermVC {
+    
+    composedTermVC.composedTerm.frame = composedTermVC.view.frame;
+    [self.composedTerms addObject:composedTermVC.composedTerm];
+    [self.terms addObject:composedTermVC.composedTerm];
+}
+
+
+
 - (void)updateDebugLabel {
   //  NSString *text1 = [NSString stringWithFormat:@"%i terms touched\r", [self.touchedTerms count]];
   //  NSString *text2 = [NSString stringWithFormat:@"%i terms selected", [self.selectedTerms count]];
@@ -254,6 +294,10 @@
         [self newGraphFromSelection];
     } else if ([buttonText isEqualToString:@"Plot"]) {
         [self newPlotFromSelection];
+    } else if ([buttonText isEqualToString:@"x^y"]) {
+        [self newComposedTermFromSelectionAndOperator:@"^"];
+    } else if ([buttonText isEqualToString:@"y√x"]) {
+        [self newComposedTermFromSelectionAndOperator:@"√"];
     } else {
         [self newComposedTermFromSelectionAndOperator:buttonText];
     }
@@ -422,10 +466,13 @@
     
     ComposedTerm *newComposedTerm = [[ComposedTerm alloc] initWithParents:self.selectedTerms andOperator:operatorString];
     
+    newComposedTerm.variableFetcher = self;
+    
     ComposedTermViewController *newComposedTermVC = [[ComposedTermViewController alloc] initWithComposedTerm:newComposedTerm];
 
     newComposedTermVC.arrowDrawer = self;
     newComposedTermVC.selectionHandlerDelegate = self;
+    newComposedTermVC.variableFetcher = self;
     
     [self.composedTerms addObject:newComposedTermVC.composedTerm];
     [self.terms addObject:newComposedTermVC.composedTerm];
@@ -546,6 +593,18 @@
 
 }
 
+
+- (Variable *)variableWithName:(NSString *)name {
+    
+    for (Variable *variable in self.variables) {
+        if ([variable.name isEqualToString:name]) {
+            return variable;
+        }
+    }
+    
+    return nil;
+    
+}
 
 
 

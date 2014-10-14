@@ -55,6 +55,8 @@
     self.formulaWebView.opaque = NO;
     
     [self.formulaWebView loadHTMLString:[self formulaAsHTML] baseURL:nil];
+    
+    NSLog([self formulaAsHTML]);
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
